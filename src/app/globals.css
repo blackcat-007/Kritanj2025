@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
+
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background:   #171717;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,4 +22,73 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+ 
+}
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/path-to-font.woff2') format('woff2');
+  font-weight: 275;
+}
+
+.font-light-275 {
+  font-family: 'CustomFont', sans-serif;
+  font-weight: 275;
+}
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px #3e2ef3;
+  }
+  50% {
+    text-shadow: 0 0 15px #4c2bf1, 0 0 25px #3022f4, 0 0 35px #230ced;
+  }
+}
+.glowing-text {
+  animation: textGlow 5s ease-in-out infinite;
+}
+/* Hide scrollbar but allow scrolling */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  
+}
+
+@keyframes redGlow {
+  0% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 0, 0, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0px 0px 15px rgba(255, 0, 0, 1));
+  }
+  100% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 0, 0, 0.8));
+  }
+}
+
+.animate-glow {
+  animation: redGlow 2s infinite ease-in-out;
+}
+
+
+
+@keyframes blinkOutline {
+  0% {
+    text-shadow: 0px 0px 5px rgba(0, 0, 255, 0.8),
+      0px 0px 10px rgba(0, 0, 255, 0.6);
+  }
+  50% {
+    text-shadow: 0px 0px 10px rgba(0, 0, 255, 1),
+      0px 0px 20px rgba(0, 0, 255, 0.8);
+  }
+  100% {
+    text-shadow: 0px 0px 5px rgba(0, 0, 255, 0.8),
+      0px 0px 10px rgba(0, 0, 255, 0.6);
+  }
+}
+
+.blinking-outline {
+  animation: blinkOutline 2s infinite ease-in-out;
 }
