@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="mt-2 flex items-center space-x-2">
             <FaPhoneAlt />
             <span className="text-lg opacity-80 text-gray-300">
-            +91 990037 68390
+            +91 99037 68390
             </span>
           </div>
           <h3 className="mt-3">Dr. Shubhendu Banerjee</h3>
