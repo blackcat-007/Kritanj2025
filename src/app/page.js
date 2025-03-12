@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUp, faCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 import { faArrowUp, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import FAQSection from '../../components/faq';
 
 export default function Home() {
 
@@ -65,7 +66,7 @@ export default function Home() {
           
           <Collage />
           <About />
-         
+          <FAQSection />
         </div>
       </div>
     </div>

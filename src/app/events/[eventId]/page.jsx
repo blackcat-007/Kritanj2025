@@ -54,22 +54,22 @@ const EventDetailPage = () => {
 
     return (
         <div className="min-h-screen md:mt-0 mt-16 bg-[#0D0E13] text-white p-0">
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full ">
         {eventDetails.bg1 && (
   <div className="hackbg1 w-full h-auto">
-    <img src={eventDetails.bg1} alt="Background 1" className="w-full h-auto md:w-2xl md:h-2xl md:translate-x-96 object-cover" />
+    <img src={eventDetails.bg1} alt="Background 1" className="w-full h-auto  object-cover" />
   </div>
 )}
 
 {eventDetails.bg2 && (
   <div className="hackbg2 w-full h-auto">
-    <img src={eventDetails.bg2} alt="Background 2" className="w-full h-auto md:w-2xl md:h-2xl md:translate-x-96 object-cover" />
+    <img src={eventDetails.bg2} alt="Background 2" className="w-full h-auto   object-cover" />
   </div>
 )}
 
 {eventDetails.bg3 && (
   <div className="hackbg3 w-full h-auto">
-    <img src={eventDetails.bg3} alt="Background 3" className="w-full h-auto md:w-2xl md:h-2xl md:translate-x-96 object-cover" />
+    <img src={eventDetails.bg3} alt="Background 3" className="w-full h-auto    object-cover" />
   </div>
 )}
         </div>

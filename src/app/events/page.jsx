@@ -16,8 +16,9 @@ export default function EventsPage() {
       'Civil Creation',
       'Mech Tech Events',
       'Robotics',
-      'Hack-o-Nit',
-      'Management Events',
+      'Hack-o-NiT',
+      //'elektron',
+      //'Management Events',
     ];
 
     const [activeCategory, setActiveCategory] = useState('All');

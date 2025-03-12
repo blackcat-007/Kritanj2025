@@ -71,7 +71,7 @@ const events=[
    time: "2:00 PM - 4:00 PM", 
    teamsize: "3", 
    studentcoordinator: "Alice Johnson", 
-   poster: "/pattern relay.jpg",
+   poster: "/pattern_relay.jpg",
    category: "Coding",
    rules: [
      "You must have your platform-specific ID ready in advance and remember the email ID and password for the event. The platform for the contest will be announced soon.",
@@ -140,22 +140,26 @@ const events=[
    { id:15,contestname: "Bridge Trix", date: "March 20, 2025", time: "9:00 AM - 11:00 AM", teamsize: "3", studentcoordinator: "Noah Young", poster: "/Bridgetrix.jpg" ,category: "Civil Creation"},
    { id:16,contestname: "Concrete Making", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "4", studentcoordinator: "Ella Martinez", poster: "/Concretronix.jpg" ,category: "Civil Creation"},
    { id:17,contestname: "Tensegrity", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "2", studentcoordinator: "James Robinson", poster: "/Tensiegrity.jpg", category: "Civil Creation" },
-   {id:18, contestname: "Caddist", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Grace Moore", poster: "link_to_caddist_poster.jpg" , category: "Civil Creation"},
+  // {id:18, contestname: "Caddist", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Grace Moore", poster: "link_to_caddist_poster.jpg" , category: "Civil Creation"},
    
  
    // Mech Tech Events
-   {id:19, contestname: "CAD War", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "2", studentcoordinator: "Logan Harris", poster: "/Cad War.jpg" , category: "Mech Tech Events"},
-   {id:20, contestname: "Mech Quiz", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "1", studentcoordinator: "Zoe Turner", poster: "/Mech Quiz.jpg" , category: "Mech Tech Events"},
-   { id:21,contestname: "Lathe War", date: "March 20, 2025", time: "3:00 PM - 5:00 PM", teamsize: "2", studentcoordinator: "Caleb Lopez", poster: "/Lathe War.jpg", category: "Mech Tech Events" },
+   {id:18, contestname: "CAD War", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "2", studentcoordinator: "Logan Harris", poster: "/Cad War.jpg" , category: "Mech Tech Events"},
+   {id:19, contestname: "Mech Quiz", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "1", studentcoordinator: "Zoe Turner", poster: "/Mech Quiz.jpg" , category: "Mech Tech Events"},
+   { id:20,contestname: "Lathe War", date: "March 20, 2025", time: "3:00 PM - 5:00 PM", teamsize: "2", studentcoordinator: "Caleb Lopez", poster: "/Lathe War.jpg", category: "Mech Tech Events" },
  
    // Robotics Events
-   { id:22,contestname: "Robo Gear", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Layla Hill", poster: "link_to_robo_gear_poster.jpg" , category: "Robotics"},
-   { id:23,contestname: "Poseidon Boat Race", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "link_to_boat_race_poster.jpg" , category: "Robotics"},
+   { id:21,contestname: "Robo Ranger", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Layla Hill", poster: "/roboranger.png" , category: "Robotics"},
+      { id:22,contestname: "Poseidon Boat Race", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "/boatrace.png" , category: "Robotics"},
+      { id:23,contestname: "Robo Soccer", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "/robosoccer.png" , category: "Robotics"},
+      { id:24,contestname: "Sumo Slam", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "/sumoslam.png" , category: "Robotics"},
+      { id:25,contestname: "Line Follower", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "/linefollower.png" , category: "Robotics"},
+      { id:26,contestname: "Signal Servant", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "/signalservant.png" , category: "Robotics"},
    //Hack-o-Nit
   
    // Management Events
-   { id:24,contestname: "Marketing Warfare", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Isabella Clark", poster: "link_to_marketing_poster.jpg", category: "Management Events" },
-   { id:25,contestname: "Tagline Stock Market", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "2", studentcoordinator: "William Hall", poster: "link_to_stock_market_poster.jpg", category: "Management Events" },
+   //{ id:28,contestname: "Marketing Warfare", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Isabella Clark", poster: "link_to_marketing_poster.jpg", category: "Management Events" },
+   //{ id:29,contestname: "Tagline Stock Market", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "2", studentcoordinator: "William Hall", poster: "link_to_stock_market_poster.jpg", category: "Management Events" },
 ]
 
 const EventCard = ({ title, image }) => (
@@ -206,6 +210,7 @@ export default function Event() {
   };
 
   return (
+    
     <div className="p-4">
       <div className='w-auto text-left ml-4'>
         <h1 className="text-3xl md:text-4xl font-semibold text-white  blinking-outline mb-4">Events</h1>

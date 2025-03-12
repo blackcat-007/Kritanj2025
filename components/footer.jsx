@@ -37,35 +37,36 @@ const Footer = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold blinking-outline mt-8 ">
-            Member Details
-          </h2>
-          <ul className="mt-3 space-y-1">
-            <li className="text-lg opacity-80 text-gray-300">
-              Faculty Coordinators
-            </li>
-            <li className="text-lg opacity-80 text-gray-300">
-              Student Coordinators
-            </li>
-          </ul>
+         
         </div>
 
         <div>
           <h2 className="text-2xl font-semibold blinking-outline mt-8">
             Contact Details
           </h2>
-          <div className="mt-3 flex items-center space-x-2">
+          <h3 className="mt-3">Dr. Bansari Deb Majumder</h3>
+          <div className="mt-2 flex items-center space-x-2">
             <FaPhoneAlt />
             <span className="text-lg opacity-80 text-gray-300">
-            +91 98313 60464
+            +91 990037 68390
             </span>
           </div>
-          <div className="mt-3 flex items-center space-x-2">
-            <FaEnvelope />
+          <h3 className="mt-3">Dr. Shubhendu Banerjee</h3>
+          <div className="mt-2 flex items-center space-x-2">
+            <FaPhoneAlt />
             <span className="text-lg opacity-80 text-gray-300">
-              kritanj.nit2025@gmail.com
+            +91 87778 20813
             </span>
           </div>
+          <a href="mailto:events@nit.ac.in">
+              <div className="mt-3 flex items-center space-x-2">
+                 <FaEnvelope />
+              <span className="text-lg opacity-80 text-gray-300">
+              events@nit.ac.in
+              </span>
+               </div>
+                </a>
+
 
           <h2 className="text-2xl font-semibold blinking-outline mt-5">
             Connect With Us

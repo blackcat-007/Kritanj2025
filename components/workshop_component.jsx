@@ -7,8 +7,7 @@ const events = [
   { id: 1, contestname: 'APT venture', poster: '/aptworkshop.jpg' },
   { id: 2, contestname: 'Robotics', poster: '/roboticsworkshop.jpg' },
   { id: 3, contestname: 'Management', poster: '/managementworkshop.jpg' },
-  { id: 4, contestname: 'Hack-O-NiT', poster: '/hackonit.jpg' },
-  { id: 5, contestname: 'more to come...', poster: '/workshop.jpg' }
+
 ];
 
 const EventCard = ({ title, image }) => (
