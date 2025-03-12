@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r absolute z-10 w-full from-[#1616161A] to-[#0C0C0C0D] text-white mr-5">
+    <nav className="bg-gradient-to-r fixed z-50 w-full from-[#1616161A] to-[#0C0C0C0D] text-white mr-5">
       <div className="flex justify-between items-center">
         <div className="flex gap-4 items-center">
           <div
@@ -71,7 +71,7 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden fixed z-10 translate-x-60 translate-y-80 flex flex-col items-center mt-4 space-y-4 bg-gradient-to-r from-[#161616c9] to-[#0c0c0ca5] py-4 rounded-md">
+        <div className="md:hidden fixed z-50 translate-x-50 w-40  flex flex-col items-center mt-4 space-y-4  bg-[#0b0b0bcb] py-4 rounded-md">
           {[
             { name: "Hack-O-NiT", path: "/events/24" },
             { name: "Events", path: "/events" },

@@ -1,5 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp ,faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import { faCircleUp } from '@fortawesome/free-regular-svg-icons';
 
 const events=[
   // Coding Contests
@@ -124,18 +127,18 @@ const events=[
    },
  
    // Fun Events
-   {id:7, contestname: "Zip-Line", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Lucas King", poster: "link_to_zipline_poster.jpg", category: "Fun Events" },
-   {id:8, contestname: "Panipuri Marathon", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Sophia Lee", poster: "link_to_panipuri_poster.jpg",category: "Fun Events" },
-   { id:9, contestname: "Treasure Hunt", date: "March 20, 2025", time: "11:00 AM - 2:00 PM", teamsize: "4", studentcoordinator: "Daniel Scott", poster: "link_to_treasure_hunt_poster.jpg",category: "Fun Events" },
-   { id:10, contestname: "Team Building", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "6", studentcoordinator: "Olivia Adams", poster: "link_to_team_building_poster.jpg" ,category: "Fun Events"},
-   {id:11, contestname: "Squid Game", date: "March 20, 2025", time: "3:00 PM - 5:00 PM", teamsize: "5", studentcoordinator: "Ethan Carter", poster: "link_to_squid_game_poster.jpg" ,category: "Fun Events"},
-   { id:12, contestname: "Throw Like a Pro", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Ava Wilson", poster: "link_to_throw_poster.jpg",category: "Fun Events" },
-   {id:13, contestname: "Alice in Borderland", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "3", studentcoordinator: "Liam Walker", poster: "link_to_alice_poster.jpg",category: "Fun Events" },
-   {id:14, contestname: "Glitch", date: "March 20, 2025", time: "4:00 PM - 6:00 PM", teamsize: "2", studentcoordinator: "Mia Hall", poster: "link_to_glitch_poster.jpg" ,category: "Fun Events"},
+   {id:7, contestname: "Zip-Line", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Lucas King", poster: "/zipline.jpg", category: "Fun Events" },
+   {id:8, contestname: "Panipuri Marathon", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Sophia Lee", poster: "/panipuri.jpg",category: "Fun Events" },
+   { id:9, contestname: "Treasure Hunt", date: "March 20, 2025", time: "11:00 AM - 2:00 PM", teamsize: "4", studentcoordinator: "Daniel Scott", poster: "/treasurehunt.jpg",category: "Fun Events" },
+   { id:10, contestname: "Team Building", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "6", studentcoordinator: "Olivia Adams", poster: "/teambuilding.jpg" ,category: "Fun Events"},
+   {id:11, contestname: "Squid Game", date: "March 20, 2025", time: "3:00 PM - 5:00 PM", teamsize: "5", studentcoordinator: "Ethan Carter", poster: "/squidgame.jpg" ,category: "Fun Events"},
+   { id:12, contestname: "Throw Like a Pro", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Ava Wilson", poster: "/throwlikeapro.jpg",category: "Fun Events" },
+   {id:13, contestname: "Alice in Borderland", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "3", studentcoordinator: "Liam Walker", poster: "/aliceborderland.jpg",category: "Fun Events" },
+   {id:14, contestname: "Glitch", date: "March 20, 2025", time: "4:00 PM - 6:00 PM", teamsize: "2", studentcoordinator: "Mia Hall", poster: "/glitch.jpg" ,category: "Fun Events"},
  
    // Civil Creations
    { id:15,contestname: "Bridge Trix", date: "March 20, 2025", time: "9:00 AM - 11:00 AM", teamsize: "3", studentcoordinator: "Noah Young", poster: "/Bridgetrix.jpg" ,category: "Civil Creation"},
-   { id:16,contestname: "Concrete Making", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "4", studentcoordinator: "Ella Martinez", poster: "/Concretonix.jpg" ,category: "Civil Creation"},
+   { id:16,contestname: "Concrete Making", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "4", studentcoordinator: "Ella Martinez", poster: "/Concretronix.jpg" ,category: "Civil Creation"},
    { id:17,contestname: "Tensegrity", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "2", studentcoordinator: "James Robinson", poster: "/Tensiegrity.jpg", category: "Civil Creation" },
    {id:18, contestname: "Caddist", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Grace Moore", poster: "link_to_caddist_poster.jpg" , category: "Civil Creation"},
    
@@ -149,20 +152,31 @@ const events=[
    { id:22,contestname: "Robo Gear", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Layla Hill", poster: "link_to_robo_gear_poster.jpg" , category: "Robotics"},
    { id:23,contestname: "Poseidon Boat Race", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "link_to_boat_race_poster.jpg" , category: "Robotics"},
    //Hack-o-Nit
-   {id:24 , contestname: "Hack-o-Nit", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "5", studentcoordinator: "Isabella Clark", poster: "/hackonit.jpg", category: "Hack-o-Nit" },
+  
    // Management Events
-   { id:25,contestname: "Marketing Warfare", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Isabella Clark", poster: "link_to_marketing_poster.jpg", category: "Management Events" },
-   { id:26,contestname: "Tagline Stock Market", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "2", studentcoordinator: "William Hall", poster: "link_to_stock_market_poster.jpg", category: "Management Events" },
+   { id:24,contestname: "Marketing Warfare", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Isabella Clark", poster: "link_to_marketing_poster.jpg", category: "Management Events" },
+   { id:25,contestname: "Tagline Stock Market", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "2", studentcoordinator: "William Hall", poster: "link_to_stock_market_poster.jpg", category: "Management Events" },
 ]
 
 const EventCard = ({ title, image }) => (
-  <div className="w-72 h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative">
-    <img src={image} alt={title} className="w-full h-full object-cover" />
-    <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl text-black flex items-center justify-between p-3 shadow-md">
-      <h2 className="text-lg font-semibold">{title}</h2>
-      <span className="text-xl">➜</span>
-    </div>
-  </div>
+  <div className="w-full sm:w-72 h-52 md:h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative group">
+  <img 
+    src={image} 
+    alt={title} 
+    className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-110" 
+  />
+ <div 
+  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-xl h-auto text-black w-3/4 md:w-auto flex items-start md:items-center justify-between p-2 sm:p-4 shadow-md cursor-pointer"
+  onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfruZFRAC35X3qbS8TRB6mDZEQIS_iVp2xdyro8Abf0ukI-OQ/viewform', '_blank')}
+>
+  <h2 className="text-xs sm:text-sm md:text-lg md:font-semibold leading-tight md:leading-normal">
+    {title}
+  </h2>
+  <span className="text-sm sm:text-xl md:text-2xl inline-block transition-transform duration-500 ease-in-out transform group-hover:rotate-90">
+    <FontAwesomeIcon icon={faCircleUp} />
+  </span>
+</div>
+</div>
 );
 
 export default function Event() {
@@ -194,42 +208,44 @@ export default function Event() {
   return (
     <div className="p-4">
       <div className='w-auto text-left ml-4'>
-        <h1 className="text-3xl md:text-4xl font-bold text-white  blinking-outline mb-4">Events</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-white  blinking-outline mb-4">Events</h1>
         <p className="text-gray-300">Explore. Compete. Innovate. Conquer.</p>
       </div>
-      <div className="relative z-10 h-[38rem] -mt-8 flex items-center justify-center space-x-4 overflow-visible p-2"
-        style={{
-          filter: 'drop-shadow(0 20px 30px rgba(128, 0, 128, 0.6))',
-        }}>
-        <div
-          className="relative z-10 h-[38rem] -mt-8 bg-black flex items-center justify-center space-x-4 overflow-hidden p-2"
-          style={{
-            clipPath: 'polygon(100% 11%, 100% 85%, 26% 100%, 0 91%, 0 12%)',
-          }}
-        >
-          {index > 0 && (
-            <button 
-              onClick={prevSlide} 
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 bg-purple-600 text-white rounded-full hover:bg-purple-800 transition z-20"
-            >
-              ←
-            </button>
-          )}
-          
-          {events.slice(index, index + cardsPerSlide).map((event) => (
-            <EventCard key={event.id} title={event.contestname} image={event.poster} />
-          ))}
-          
-          {index + cardsPerSlide < events.length && (
-            <button 
-              onClick={nextSlide} 
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 bg-purple-600 text-white rounded-full hover:bg-purple-800 transition z-20"
-            >
-              →
-            </button>
-          )}
-        </div>
-      </div>
+      <div 
+  className="relative z-10  md:h-[38rem] h-[24rem] -mt-8 flex items-center justify-center space-x-2 md:space-x-4 overflow-visible p-2"
+  style={{
+    filter: 'drop-shadow(0 20px 30px rgba(128, 0, 128, 0.6))',
+  }}
+>
+<div
+  className="relative z-10 h-[24rem] md:h-[38rem] -mt-8 bg-black flex items-center justify-center space-x-2 md:space-x-4 overflow-hidden p-2"
+  style={{
+    clipPath: 'polygon(100% 11%, 100% 85%, 26% 100%, 0 91%, 0 12%)',
+  }}
+>
+  {index > 0 && (
+  <button 
+  onClick={prevSlide} 
+  className="absolute w-12 h-12 left-0 md:left-2 top-1/2 -translate-y-[60%] p-1 md:p-2 text-center bg-[#732fc793] font-bold text-white rounded-full transition z-50"
+>
+  <FontAwesomeIcon icon={faArrowLeft} />
+</button>
+  )}
+  
+  {events.slice(index, index + cardsPerSlide).map((event) => (
+    <EventCard key={event.id} title={event.contestname} image={event.poster} />
+  ))}
+  
+  {index + cardsPerSlide < events.length && (
+    <button 
+      onClick={nextSlide} 
+      className="absolute w-12 h-12 right-2 md:right-4 top-1/2 -translate-y-[60%] p-1 md:p-2 text-center bg-[#732fc793] font-bold text-white rounded-full translate-x-4 transition z-50"
+    >
+     <FontAwesomeIcon icon={faArrowRight} />
+    </button>
+  )}
+</div>
+</div>
     </div>
   );
 }

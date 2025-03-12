@@ -92,3 +92,20 @@ html, body {
 .blinking-outline {
   animation: blinkOutline 2s infinite ease-in-out;
 }
+.hackprize{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.hackprize .prize{
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.hackprize .gold{
+  color:rgba(255, 215, 0, 1);
+}
+.hackprize .silver{
+color: rgba(192, 192, 192, 1);
+}
+.hackprize .bronz{
+  color: rgba(205, 127, 50, 1);
+}

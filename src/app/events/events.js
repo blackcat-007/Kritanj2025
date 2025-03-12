@@ -65,7 +65,7 @@ export const events=[
       time: "2:00 PM - 4:00 PM", 
       teamsize: "3", 
       studentcoordinator: "Alice Johnson", 
-      poster: "/pattern relay.jpg",
+      poster: "/Pattern relay.jpg",
       category: "Coding",
       rules: [
         "You must have your platform-specific ID ready in advance and remember the email ID and password for the event. The platform for the contest will be announced soon.",
@@ -121,18 +121,18 @@ export const events=[
       },
     
       // Fun Events
-      {id:7, contestname: "Zip-Line", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Lucas King", poster: "link_to_zipline_poster.jpg", category: "Fun Events" },
-      {id:8, contestname: "Panipuri Marathon", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Sophia Lee", poster: "link_to_panipuri_poster.jpg",category: "Fun Events" },
-      { id:9, contestname: "Treasure Hunt", date: "March 20, 2025", time: "11:00 AM - 2:00 PM", teamsize: "4", studentcoordinator: "Daniel Scott", poster: "link_to_treasure_hunt_poster.jpg",category: "Fun Events" },
-      { id:10, contestname: "Team Building", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "6", studentcoordinator: "Olivia Adams", poster: "link_to_team_building_poster.jpg" ,category: "Fun Events"},
-      {id:11, contestname: "Squid Game", date: "March 20, 2025", time: "3:00 PM - 5:00 PM", teamsize: "5", studentcoordinator: "Ethan Carter", poster: "link_to_squid_game_poster.jpg" ,category: "Fun Events"},
-      { id:12, contestname: "Throw Like a Pro", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Ava Wilson", poster: "link_to_throw_poster.jpg",category: "Fun Events" },
-      {id:13, contestname: "Alice in Borderland", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "3", studentcoordinator: "Liam Walker", poster: "link_to_alice_poster.jpg",category: "Fun Events" },
-      {id:14, contestname: "Glitch", date: "March 20, 2025", time: "4:00 PM - 6:00 PM", teamsize: "2", studentcoordinator: "Mia Hall", poster: "link_to_glitch_poster.jpg" ,category: "Fun Events"},
+      {id:7, contestname: "Zip-Line", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Lucas King", poster: "/zipline.jpg", category: "Fun Events" },
+      {id:8, contestname: "Panipuri Marathon", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Sophia Lee", poster: "/panipuri.jpg",category: "Fun Events" },
+      { id:9, contestname: "Treasure Hunt", date: "March 20, 2025", time: "11:00 AM - 2:00 PM", teamsize: "4", studentcoordinator: "Daniel Scott", poster: "/treasurehunt.jpg",category: "Fun Events" },
+      { id:10, contestname: "Team Building", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "6", studentcoordinator: "Olivia Adams", poster: "/teambuilding.jpg" ,category: "Fun Events"},
+      {id:11, contestname: "Squid Game", date: "March 20, 2025", time: "3:00 PM - 5:00 PM", teamsize: "5", studentcoordinator: "Ethan Carter", poster: "/squidgame.jpg" ,category: "Fun Events"},
+      { id:12, contestname: "Throw Like a Pro", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "1", studentcoordinator: "Ava Wilson", poster: "/throwlikeapro.jpg",category: "Fun Events" },
+      {id:13, contestname: "Alice in Borderland", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "3", studentcoordinator: "Liam Walker", poster: "/aliceborderland.jpg",category: "Fun Events" },
+      {id:14, contestname: "Glitch", date: "March 20, 2025", time: "4:00 PM - 6:00 PM", teamsize: "2", studentcoordinator: "Mia Hall", poster: "/glitch.jpg" ,category: "Fun Events"},
     
       // Civil Creations
       { id:15,contestname: "Bridge Trix", date: "March 20, 2025", time: "9:00 AM - 11:00 AM", teamsize: "3", studentcoordinator: "Noah Young", poster: "/Bridgetrix.jpg" ,category: "Civil Creation"},
-      { id:16,contestname: "Concrete Making", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "4", studentcoordinator: "Ella Martinez", poster: "/Concretonix.jpg" ,category: "Civil Creation"},
+      { id:16,contestname: "Concrete Making", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "4", studentcoordinator: "Ella Martinez", poster: "/Concretronix.jpg" ,category: "Civil Creation"},
       { id:17,contestname: "Tensegrity", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "2", studentcoordinator: "James Robinson", poster: "/Tensiegrity.jpg", category: "Civil Creation" },
       {id:18, contestname: "Caddist", date: "March 20, 2025", time: "2:00 PM - 4:00 PM", teamsize: "1", studentcoordinator: "Grace Moore", poster: "link_to_caddist_poster.jpg" , category: "Civil Creation"},
       
@@ -146,7 +146,30 @@ export const events=[
       { id:22,contestname: "Robo Gear", date: "March 20, 2025", time: "9:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Layla Hill", poster: "link_to_robo_gear_poster.jpg" , category: "Robotics"},
       { id:23,contestname: "Poseidon Boat Race", date: "March 20, 2025", time: "2:00 PM - 5:00 PM", teamsize: "4", studentcoordinator: "Mason Wright", poster: "link_to_boat_race_poster.jpg" , category: "Robotics"},
       //Hack-o-Nit
-      {id:24 , contestname: "Hack-o-Nit", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "5", studentcoordinator: "Isabella Clark", poster: "/hackonit.jpg", category: "Hack-o-Nit" },
+      {
+        id: 24,
+        contestname: "Hack-o-Nit",
+        date: "March 20, 2025",
+        time: "Overnight till 21st March, 2025",
+        teamsize: "5",
+        studentcoordinator: "Isabella Clark",
+        poster: "/hackonit.jpg",
+        bg1: "/1bg.png",
+        bg2: "/2bg.png",
+        bg3: "/3bg.png",
+        category: "Hack-o-Nit",
+        prizemoney:["15k","10k","5k"],
+        rules: [
+          "General Rules",
+          "Hack-O-NiT is a team-based event; each team must have 2 to 5 members.",
+          "Participants must be present at the venue throughout the event (No remote participation).",
+          "Teams must submit their final project before the deadline; late submissions will not be considered.",
+          "Facilities & Support",
+          "Wi-Fi, power outlets, and refreshments will be available.",
+          "Mentors will be present for guidance, not direct coding help.",
+          "Participants should bring their own laptops and required peripherals."
+        ]
+      },      
       // Management Events
       { id:25,contestname: "Marketing Warfare", date: "March 20, 2025", time: "10:00 AM - 12:00 PM", teamsize: "3", studentcoordinator: "Isabella Clark", poster: "link_to_marketing_poster.jpg", category: "Management Events" },
       { id:26,contestname: "Tagline Stock Market", date: "March 20, 2025", time: "1:00 PM - 3:00 PM", teamsize: "2", studentcoordinator: "William Hall", poster: "link_to_stock_market_poster.jpg", category: "Management Events" },

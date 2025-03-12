@@ -3,13 +3,13 @@ import { FaInstagram } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io";
 import "@fontsource/poppins";
 
-const kritanjName = "/images/kritanj_name.png";
-const logo = "/logo.png";
+const kritanjName = "/kritanj-removedbg.png";
+const logo = "/kritanj_white.png";
 
 const Footer = () => {
   return (
     <footer
-      className=" bg-opacity-75 bg-[#16161692] w-full h-full text-white py-20 px-6 md:px-12"
+      className=" absolute z-20  md:ml-0 md:w-full bg-[#060606e8] object-cover w-full   text-white py-20 px-6 md:px-12"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       <div className="w-full grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-6 md:gap-10 text-left">
@@ -57,7 +57,7 @@ const Footer = () => {
           <div className="mt-3 flex items-center space-x-2">
             <FaPhoneAlt />
             <span className="text-lg opacity-80 text-gray-300">
-              +91 8250 519 872
+            +91 98313 60464
             </span>
           </div>
           <div className="mt-3 flex items-center space-x-2">
@@ -72,7 +72,7 @@ const Footer = () => {
           </h2>
           <div className="mt-3 flex space-x-4">
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/nitnarula?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#8a72e6] transition"
