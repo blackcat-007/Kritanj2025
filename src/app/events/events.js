@@ -162,6 +162,7 @@ export const events=[
         bg2: "/2bg.png",
         bg3: "/3bg.png",
         category: "Hack-o-NiT",
+        ideasubmissiondeadline: "March 14, 2025",
         prizemoney:["15k","10k","5k"],
         rules: [
           "General Rules",

@@ -116,6 +116,8 @@ const EventDetailPage = () => {
                         </div>
     }
                         {eventDetails.registrationFees && <p className="text-gray-300">💸 Registration Fees: {eventDetails.registrationFees}</p>}
+                        {eventDetails.ideasubmissiondeadline && 
+                        ( <p className="text-gray-300 text-bold text-2xl">💡 Idea Submission Deadline: {eventDetails.ideasubmissiondeadline}</p>)}
                     </div>
                 </div>
     
@@ -154,7 +156,7 @@ const EventDetailPage = () => {
                     <div className="text-center mt-8">
                         <a 
                             href={
-                                eventDetails.contestname === "Hack-o-Nit"
+                                eventDetails.contestname === "Hack-o-NiT"
                                     ? "https://docs.google.com/forms/d/e/1FAIpQLScicH5gboqHPdpyz1-hnD9K04ftNXtHumbAfqvwf67whbz9Ww/viewform?fbzx=-1065942362266758347"
                                     : "https://docs.google.com/forms/d/e/1FAIpQLSfruZFRAC35X3qbS8TRB6mDZEQIS_iVp2xdyro8Abf0ukI-OQ/viewform"
                             }
