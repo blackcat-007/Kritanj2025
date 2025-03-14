@@ -17,8 +17,9 @@ export default function EventsPage() {
       'Mech Tech Events',
       'Robotics',
       'Hack-o-NiT',
-      //'elektron',
-      //'Management Events',
+      'Elektron',
+      'Management Events',
+      'Others'
     ];
 
     const [activeCategory, setActiveCategory] = useState('All');
