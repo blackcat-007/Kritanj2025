@@ -42,7 +42,7 @@ const Footer = () => {
 
         <div>
           <h2 className="text-2xl font-semibold blinking-outline mt-8">
-            Conveyors
+            Convenors
           </h2>
           <h3 className="mt-3">Dr. Bansari Deb Majumder</h3>
           <div className="mt-2 flex items-center space-x-2">
