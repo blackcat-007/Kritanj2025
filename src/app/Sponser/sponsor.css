@@ -5,17 +5,18 @@
 }
 section{
     background-color: black;
-    height: 100vh;
+    /* height: 100vh; */
     overflow: hidden;
 }
 
 .mainbody {
-    /* background-color: rgba(13, 14, 19, 1); */
+    background-color: rgba(13, 14, 19, 1);
     color: white;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 50px;
     overflow: hidden;
     margin: 0px 30px;
+    position: relative;
 }
 .hackonitheader {
     font-family: Poppins;
@@ -78,4 +79,45 @@ section{
     border-top: 1px solid rgba(204, 204, 204, 1);
     border-right: 1px solid rgba(204, 204, 204, 1);
     margin-bottom: 40px;
+}
+.sponsorheader{
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    text-shadow: 0 0 10px cyan,
+                0 0 20px cyan,
+                0 0 40px cyan;
+    margin: 30px 1px;
+}
+.sponsorimage{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.sponsorimage span{
+margin: 10px 2px;
+}
+.sponsorimage span img{
+    background-color: white;
+    width: 600px;
+    height: 90px;
+    border-radius: 5px;
+    min-width: 340px;
+}
+.sponsorimage img{
+    background-color: white;
+    border-radius: 50%;
+}
+
+@media(max-width:750px){
+    .sponsorimage span img{
+        width: 320px;
+    }
+    .mainbody {
+        margin: 0px;
+        padding: 10px 20px ;
+    }
 }
