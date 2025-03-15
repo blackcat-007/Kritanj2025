@@ -59,12 +59,12 @@ const SponsorsSection = () => {
                 <div className="relative w-full overflow-hidden mt-6">
                 <marquee direction="left" scrollamount="20" scrolldelay="0" className="h-56 rounded-lg mb-6 justify-between p-2 bg-gradient-to-r from-[#151b4b] via-[#421856] to-[#5d2901]">
         <div className="flex gap-10">
-            <img src="/mathworks.jpg" alt="Sponsor 1" className="w-96 h-52 rounded-md " />
-            <img src="/ieeecis.jpg" alt="Sponsor 2" className="w-72 h-52 rounded-md" />
-            <img src="/ieeecomsoc.jpg" alt="Sponsor 3" className="w-72 h-52 rounded-md" />
+            <img src="/mathworks.png" alt="Sponsor 1" className="w-96 h-52 rounded-md " />
+            <img src="/ieeecis.png" alt="Sponsor 2" className="w-72 h-52 rounded-md" />
+            <img src="/ieeecomsoc.png" alt="Sponsor 3" className="w-72 h-52 rounded-md" />
             <img src="/ieeecs.png" alt="Sponsor 4" className="w-96 h-52 rounded-md" />
             <img src="/ieeepes.png" alt="Sponsor 5" className="w-72 h-52 rounded-md" />
-            <img src="/engineering.png" alt="Sponsor 7" className="w-72 h-52 rounded-md" />
+            <img src="/engineering.png" alt="Sponsor 7" className="w-96 h-52 rounded-md" />
             <img src="/asce.png" alt="Sponsor 8" className="w-72 h-52 rounded-md" />
         </div>
     </marquee>
@@ -138,7 +138,7 @@ const SponsorsSection = () => {
                     id="popup-image-powered"
                     src="/idea.jpg"
                     alt="Powered By"
-                    className="h-40 md:w-[45rem] md:h-64 mx-auto mt-10 shadow-lg rounded-lg transition-all duration-500 group-hover:scale-105"
+                    className="h-20 md:w-[45rem] md:h-32 mx-auto mt-10 shadow-lg rounded-lg transition-all duration-500 group-hover:scale-105"
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={isPoweredVisible ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, ease: "easeOut" }}
