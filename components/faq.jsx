@@ -12,7 +12,7 @@ const faqs = [
   { question: "What Is The Cost For Registration?", answer: "The registration fee varies depending on the event. Check the event description on the for specific pricing details." },
   { question: "Can I Register For Multiple Events?", answer: "Yes! You can participate in multiple events as long as there are no scheduling conflicts." },
   { question: "What Prizes Can I Win At Kritanj?", answer: "We have exciting prizes for all events, including cash prizes, certificates, and trophies. Check the event details for specific prize information." },
-  {question : "when is the last date of idea submission for Hack-O-NiT?", answer: "The last date of idea submission for hackathon is 14th March 2025."}
+  {question : "when is the last date of idea submission for Hack-O-NiT?", answer: "The last date of idea submission for hackathon is 16th March 2025."}
 ];
 
 export default function FAQSection() {
