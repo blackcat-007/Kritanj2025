@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp ,faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import { useSwipeable } from 'react-swipeable';
@@ -199,7 +199,7 @@ const events=[
 ]
 
 const EventCard = ({ title, image }) => (
-  <div className="w-full sm:w-72 h-52 md:h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative group">
+  <div className="md:w-80 w-40 sm:w-72 h-52 md:h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative group">
     <img 
       src={image} 
       alt={title} 
@@ -220,77 +220,95 @@ const EventCard = ({ title, image }) => (
 );
 
 export default function Event() {
-  const [index, setIndex] = useState(0);
   const [cardsPerSlide, setCardsPerSlide] = useState(4);
+  const containerRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   useEffect(() => {
     const handleResize = () => {
       setCardsPerSlide(window.innerWidth < 768 ? 2 : 4);
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    trackMouse: true,
-    delta: 10, 
-    preventScrollOnSwipe: true,
-  });
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-  const nextSlide = () => {
-    if (index + cardsPerSlide < events.length) {
-      setIndex((prevIndex) => prevIndex + 1);
-    }
+    // Add event listener for mouse wheel scrolling
+    const handleWheelScroll = (event) => {
+      event.preventDefault();
+      container.scrollLeft += event.deltaY;
+    };
+
+    container.addEventListener("wheel", handleWheelScroll);
+    return () => container.removeEventListener("wheel", handleWheelScroll);
+  }, []);
+
+  // ✅ Handles both mouse and touch dragging
+  const handleDragStart = (e) => {
+    isDragging.current = true;
+    const pageX = e.pageX || e.touches[0].pageX; // Support touch event
+    startX.current = pageX - containerRef.current.offsetLeft;
+    scrollLeft.current = containerRef.current.scrollLeft;
   };
 
-  const prevSlide = () => {
-    if (index > 0) {
-      setIndex((prevIndex) => prevIndex - 1);
-    }
+  const handleDragMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const pageX = e.pageX || e.touches[0].pageX; // Support touch event
+    const x = pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2; // Adjust scroll speed
+    containerRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleDragEnd = () => {
+    isDragging.current = false;
   };
 
   return (
     <div className="p-4">
-      <div className='w-auto text-left ml-4'>
-        <h1 className="text-3xl md:text-4xl font-semibold text-white blinking-outline mb-4">Events</h1>
+      <div className="w-auto text-left ml-4">
+        <h1 className="text-3xl md:text-4xl font-semibold text-white blinking-outline mb-4">
+          Events
+        </h1>
         <p className="text-gray-300">Explore. Compete. Innovate. Conquer.</p>
       </div>
-      <div 
-        {...handlers}
+      <div
         className="relative z-10 md:h-[38rem] h-[24rem] -mt-8 flex items-center justify-center space-x-2 md:space-x-4 overflow-visible p-2"
-        style={{
-          filter: 'drop-shadow(0 20px 30px rgba(128, 0, 128, 0.6))',
-        }}
+        style={{ filter: "drop-shadow(0 20px 30px rgba(128, 0, 128, 0.6))" }}
       >
         <div
-          className="relative z-10 h-[24rem] md:h-[38rem] -mt-8 bg-black flex items-center justify-center space-x-2 md:space-x-4 overflow-hidden p-2"
+          ref={containerRef}
+          className="relative z-10 h-[24rem] md:h-[38rem] -mt-8 bg-black flex items-center justify-start space-x-4 overflow-x-scroll p-2 cursor-grab"
           style={{
-            clipPath: 'polygon(100% 11%, 100% 85%, 26% 100%, 0 91%, 0 12%)',
+            clipPath: "polygon(100% 11%, 100% 85%, 26% 100%, 0 91%, 0 12%)",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+          onTouchStart={handleDragStart} // ✅ Mobile touch support
+          onTouchMove={handleDragMove} // ✅ Mobile touch support
+          onTouchEnd={handleDragEnd} // ✅ Mobile touch support
         >
-          {index > 0 && (
-            <button 
-              onClick={prevSlide} 
-              className="absolute w-12 h-12 left-0 md:left-2 top-1/2 -translate-y-[60%] p-1 md:p-2 text-center bg-[#732fc793] font-bold text-white rounded-full transition z-50"
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-          )}
-          {events.slice(index, index + cardsPerSlide).map((event) => (
-            <EventCard key={event.id} title={event.contestname} image={event.poster} />
-          ))}
-          {index + cardsPerSlide < events.length && (
-            <button 
-              onClick={nextSlide} 
-              className="absolute w-12 h-12 right-2 md:right-4 top-1/2 -translate-y-[60%] p-1 md:p-2 text-center bg-[#732fc793] font-bold text-white rounded-full translate-x-2 md:translate-x-3 transition z-50"
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          )}
+          <div className="flex items-center justify-start space-x-4">
+            <div className="md:space-x-4 space-x-1 flex items-center justify-center">
+            {events.map((event) => (
+              <EventCard
+                key={event.id}
+                title={event.contestname}
+                image={event.poster}
+              />
+            ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
