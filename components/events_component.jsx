@@ -268,7 +268,7 @@ export default function Event() {
 
   const handleDragMove = (e) => {
     if (!isDragging.current) return;
-    e.preventDefault();
+   
     
     const pageX = e.pageX || e.touches[0].pageX; // Support touch event
     const x = pageX - containerRef.current.offsetLeft;
@@ -280,7 +280,7 @@ export default function Event() {
     const smoothScroll = () => {
       if (!isDragging.current) return; // Stop if dragging ends
   
-      currentScroll += (targetScroll - currentScroll) * 0.2; // Smooth transition
+      currentScroll += (targetScroll - currentScroll) * 0.5; // Smooth transition
       containerRef.current.scrollLeft = currentScroll;
   
       if (Math.abs(currentScroll - targetScroll) > 0.5) {

@@ -86,7 +86,6 @@ export default function Event() {
 
   const handleDragMove = (e) => {
     if (!isDragging.current) return;
-    e.preventDefault();
     
     const pageX = e.pageX || e.touches[0].pageX; // Support touch event
     const x = pageX - containerRef.current.offsetLeft;
