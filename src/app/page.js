@@ -77,7 +77,7 @@ export default function Home() {
             </marquee>
           </div>
 
-          <div className='z-10 bg-black ml-2 h-full w-full'>
+          <div className='z-10 bg-black  h-full w-full'>
             {[EventsComponent, WorksjopComponent, Collage, About, FAQSection].map((Component, index) => (
               <div
                 key={index}
