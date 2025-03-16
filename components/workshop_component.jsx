@@ -16,7 +16,7 @@ const events = [
   
 ];
 
-const EventCard = ({ title, image }) => (
+const EventCard = ({ title, image, link }) => (
   <div className="md:w-80 w-40 sm:w-72 h-52 md:h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative group">
     <img 
       src={image} 
@@ -25,7 +25,7 @@ const EventCard = ({ title, image }) => (
     />
     <div 
       className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-xl h-auto text-black w-3/4 md:w-auto flex items-start md:items-center justify-between p-2 sm:p-4 shadow-md cursor-pointer"
-      onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfruZFRAC35X3qbS8TRB6mDZEQIS_iVp2xdyro8Abf0ukI-OQ/viewform', '_blank')}
+      onClick={() => window.open(link, '_blank')}
     >
       <h2 className="text-xs sm:text-sm md:text-lg md:font-semibold leading-tight md:leading-normal">
         {title}
@@ -147,6 +147,7 @@ export default function Event() {
                 key={event.id}
                 title={event.contestname}
                 image={event.poster}
+                link={event.instalink}
               />
             ))}
             </div>
