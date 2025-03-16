@@ -220,21 +220,13 @@ const EventCard = ({ title, image }) => (
 );
 
 export default function Event() {
-  const [cardsPerSlide, setCardsPerSlide] = useState(4);
+ 
   const containerRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setCardsPerSlide(window.innerWidth < 768 ? 2 : 4);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+  
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -242,8 +234,25 @@ export default function Event() {
     // Add event listener for mouse wheel scrolling
     const handleWheelScroll = (event) => {
       event.preventDefault();
-      container.scrollLeft += event.deltaY;
+      
+      const container = containerRef.current;
+      if (!container) return;
+    
+      let targetScroll = container.scrollLeft + event.deltaY; // Target scroll position
+      let currentScroll = container.scrollLeft; // Current position
+    
+      const smoothScroll = () => {
+        currentScroll += (targetScroll - currentScroll) * 0.2; // Smooth transition factor
+        container.scrollLeft = currentScroll;
+    
+        if (Math.abs(currentScroll - targetScroll) > 0.5) {
+          requestAnimationFrame(smoothScroll); // Continue smooth transition
+        }
+      };
+    
+      requestAnimationFrame(smoothScroll);
     };
+    
 
     container.addEventListener("wheel", handleWheelScroll);
     return () => container.removeEventListener("wheel", handleWheelScroll);
@@ -260,12 +269,28 @@ export default function Event() {
   const handleDragMove = (e) => {
     if (!isDragging.current) return;
     e.preventDefault();
+    
     const pageX = e.pageX || e.touches[0].pageX; // Support touch event
     const x = pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX.current) * 2; // Adjust scroll speed
-    containerRef.current.scrollLeft = scrollLeft.current - walk;
+    const walk = (x - startX.current) * 1.2; // Adjust scroll speed
+  
+    let targetScroll = scrollLeft.current - walk; // Target position
+    let currentScroll = containerRef.current.scrollLeft; // Current position
+  
+    const smoothScroll = () => {
+      if (!isDragging.current) return; // Stop if dragging ends
+  
+      currentScroll += (targetScroll - currentScroll) * 0.2; // Smooth transition
+      containerRef.current.scrollLeft = currentScroll;
+  
+      if (Math.abs(currentScroll - targetScroll) > 0.5) {
+        requestAnimationFrame(smoothScroll); // Continue animation
+      }
+    };
+  
+    requestAnimationFrame(smoothScroll);
   };
-
+  
   const handleDragEnd = () => {
     isDragging.current = false;
   };
@@ -299,7 +324,7 @@ export default function Event() {
           onTouchEnd={handleDragEnd} // ✅ Mobile touch support
         >
           <div className="flex items-center justify-start space-x-4">
-            <div className="md:space-x-4 space-x-1 flex items-center justify-center">
+            <div className="md:space-x-4 space-x-2 flex items-center justify-center">
             {events.map((event) => (
               <EventCard
                 key={event.id}

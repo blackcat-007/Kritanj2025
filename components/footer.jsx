@@ -9,7 +9,7 @@ const logo = "/kritanj_white.png";
 const Footer = () => {
   return (
     <footer
-      className=" absolute z-20  md:ml-0 md:w-full bg-[#060606e8] object-cover w-full   text-white py-20 px-6 md:px-12"
+      className=" absolute z-20 mt-9 ml-2 md:ml-0 md:w-full bg-[#060606e8] object-cover w-full   text-white py-20 px-6 md:px-12"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       <div className="w-full grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-6 md:gap-10 text-left">

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUp } from '@fortawesome/free-regular-svg-icons';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -16,17 +16,16 @@ const events = [
   
 ];
 
-const EventCard = ({ title, image,link }) => (
-  <div className="w-full sm:w-72 h-52 md:h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative group">
-    <img  
+const EventCard = ({ title, image }) => (
+  <div className="md:w-80 w-40 sm:w-72 h-52 md:h-96 bg-black rounded-2xl shadow-lg overflow-hidden relative group">
+    <img 
       src={image} 
       alt={title} 
       className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-110" 
     />
-
     <div 
       className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-xl h-auto text-black w-3/4 md:w-auto flex items-start md:items-center justify-between p-2 sm:p-4 shadow-md cursor-pointer"
-      onClick={() => window.open(link, '_blank')}
+      onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfruZFRAC35X3qbS8TRB6mDZEQIS_iVp2xdyro8Abf0ukI-OQ/viewform', '_blank')}
     >
       <h2 className="text-xs sm:text-sm md:text-lg md:font-semibold leading-tight md:leading-normal">
         {title}
@@ -39,77 +38,120 @@ const EventCard = ({ title, image,link }) => (
 );
 
 export default function Event() {
-  const [index, setIndex] = useState(0);
-  const [cardsPerSlide, setCardsPerSlide] = useState(4);
+ 
+  const containerRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
+  
   useEffect(() => {
-    const handleResize = () => {
-      setCardsPerSlide(window.innerWidth < 768 ? 2 : 4);
-    };
+    const container = containerRef.current;
+    if (!container) return;
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    // Add event listener for mouse wheel scrolling
+    const handleWheelScroll = (event) => {
+      event.preventDefault();
+      
+      const container = containerRef.current;
+      if (!container) return;
+    
+      let targetScroll = container.scrollLeft + event.deltaY; // Target scroll position
+      let currentScroll = container.scrollLeft; // Current position
+    
+      const smoothScroll = () => {
+        currentScroll += (targetScroll - currentScroll) * 0.2; // Smooth transition factor
+        container.scrollLeft = currentScroll;
+    
+        if (Math.abs(currentScroll - targetScroll) > 0.5) {
+          requestAnimationFrame(smoothScroll); // Continue smooth transition
+        }
+      };
+    
+      requestAnimationFrame(smoothScroll);
+    };
+    
+
+    container.addEventListener("wheel", handleWheelScroll);
+    return () => container.removeEventListener("wheel", handleWheelScroll);
   }, []);
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    trackMouse: true,
-    delta: 10, 
-    preventScrollOnSwipe: true,
-  });
-
-  const nextSlide = () => {
-    if (index + cardsPerSlide < events.length) {
-      setIndex((prevIndex) => prevIndex + 1);
-    }
+  // ✅ Handles both mouse and touch dragging
+  const handleDragStart = (e) => {
+    isDragging.current = true;
+    const pageX = e.pageX || e.touches[0].pageX; // Support touch event
+    startX.current = pageX - containerRef.current.offsetLeft;
+    scrollLeft.current = containerRef.current.scrollLeft;
   };
 
-  const prevSlide = () => {
-    if (index > 0) {
-      setIndex((prevIndex) => prevIndex - 1);
-    }
+  const handleDragMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    
+    const pageX = e.pageX || e.touches[0].pageX; // Support touch event
+    const x = pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.2; // Adjust scroll speed
+  
+    let targetScroll = scrollLeft.current - walk; // Target position
+    let currentScroll = containerRef.current.scrollLeft; // Current position
+  
+    const smoothScroll = () => {
+      if (!isDragging.current) return; // Stop if dragging ends
+  
+      currentScroll += (targetScroll - currentScroll) * 0.2; // Smooth transition
+      containerRef.current.scrollLeft = currentScroll;
+  
+      if (Math.abs(currentScroll - targetScroll) > 0.5) {
+        requestAnimationFrame(smoothScroll); // Continue animation
+      }
+    };
+  
+    requestAnimationFrame(smoothScroll);
+  };
+  
+  const handleDragEnd = () => {
+    isDragging.current = false;
   };
 
   return (
     <div className="p-4">
-      <div className='w-auto text-left ml-4'>
-        <h1 className="text-3xl md:text-4xl font-semibold text-white blinking-outline mb-4">Workshops</h1>
+      <div className="w-auto text-left ml-4">
+        <h1 className="text-3xl md:text-4xl font-semibold text-white blinking-outline mb-4">
+          Workshops
+        </h1>
         <p className="text-gray-300">Learn. Build. Evolve. Excel.</p>
       </div>
-      <div 
-        {...handlers}
+      <div
         className="relative z-10 md:h-[38rem] h-[24rem] -mt-8 flex items-center justify-center space-x-2 md:space-x-4 overflow-visible p-2"
-        style={{
-          filter: 'drop-shadow(0 20px 30px rgba(128, 0, 128, 0.6))',
-        }}
+        style={{ filter: "drop-shadow(0 20px 30px rgba(128, 0, 128, 0.6))" }}
       >
         <div
-          className="relative z-10 h-[24rem] md:h-[38rem] -mt-8 bg-black flex items-center justify-center space-x-2 md:space-x-4 overflow-hidden p-2"
+          ref={containerRef}
+          className="relative z-10 h-[24rem] md:h-[38rem] -mt-8 bg-black flex items-center justify-start space-x-4 overflow-x-scroll p-2 cursor-grab"
           style={{
-            clipPath: 'polygon(100% 11%, 100% 85%, 26% 100%, 0 91%, 0 12%)',
+            clipPath: "polygon(100% 11%, 100% 85%, 26% 100%, 0 91%, 0 12%)",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+          onTouchStart={handleDragStart} // ✅ Mobile touch support
+          onTouchMove={handleDragMove} // ✅ Mobile touch support
+          onTouchEnd={handleDragEnd} // ✅ Mobile touch support
         >
-          {index > 0 && (
-            <button 
-              onClick={prevSlide} 
-              className="absolute w-12 h-12 left-0 md:left-2 top-1/2 -translate-y-[60%] p-1 md:p-2 text-center bg-[#732fc793] font-bold text-white rounded-full transition z-50"
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-          )}
-          {events.slice(index, index + cardsPerSlide).map((event) => (
-            <EventCard key={event.id} title={event.contestname} image={event.poster} link={event.instalink} />
-          ))}
-          {index + cardsPerSlide < events.length && (
-            <button 
-              onClick={nextSlide} 
-              className="absolute w-12 h-12 right-2 md:right-4 top-1/2 -translate-y-[60%] p-1 md:p-2 text-center bg-[#732fc793] font-bold text-white rounded-full translate-x-2 md:translate-x-3 transition z-50"
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          )}
+          <div className="flex items-center justify-start space-x-4">
+            <div className="md:space-x-4 space-x-2 flex items-center justify-center">
+            {events.map((event) => (
+              <EventCard
+                key={event.id}
+                title={event.contestname}
+                image={event.poster}
+              />
+            ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
