@@ -3,6 +3,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io";
 import "@fontsource/poppins";
 
+
 const kritanjName = "/kritanj-removedbg.png";
 const logo = "/kritanj_white.png";
 
@@ -31,9 +32,12 @@ const Footer = () => {
             Agarpara, Kolkata, West Bengal <br />
             700109
           </p>
+          <a href="https://github.com/blackcat-007/Kritanj2025"> 
           <p className="text-xl mt-20 opacity-60 text-gray-300">
-            © 2025 Kritanj
+            © Kritanj 2025 
           </p>
+          </a>
+        <a href="https://github.com/blackcat-007/Kritanj2025"> <span>Give some appreciations by giving a star to the github repo ---- <span className="underline">Kritanj2025</span> </span></a>
         </div>
 
         <div>
@@ -91,6 +95,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+    
     </footer>
   );
 };

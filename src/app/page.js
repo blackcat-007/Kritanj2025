@@ -9,6 +9,7 @@ import About from '../../components/about';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import FAQSection from '../../components/faq';
+import UsSection from '../../components/us';
 
 export default function Home() {
   const sectionsRef = useRef([]);
@@ -78,7 +79,7 @@ export default function Home() {
           </div>
 
           <div className='z-10 bg-black  h-full w-full'>
-            {[EventsComponent, WorksjopComponent, Collage, About, FAQSection].map((Component, index) => (
+            {[EventsComponent, WorksjopComponent, Collage, About,UsSection, FAQSection].map((Component, index) => (
               <div
                 key={index}
                 ref={(el) => (sectionsRef.current[index] = el)}
