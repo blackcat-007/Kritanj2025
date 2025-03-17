@@ -2,7 +2,7 @@ import React from "react";
 
 const UsSection = () => {
   const teamMembers = [
-    { name: "Saumyadip Das", role: "UI/UX Designer", color: "bg-red-300" ,profile: "saumyadip.jpg",},
+    { name: "Saumyadeep Das", role: "UI/UX Designer", color: "bg-red-300" ,profile: "saumyadip.jpg",},
     {
       name: "Shubhodeep Mukherjee",
       role: "Developer",
