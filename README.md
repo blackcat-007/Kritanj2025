@@ -1,4 +1,4 @@
-
+<img src="https://github.com/blackcat-007/Kritanj2025/blob/main/public/kritanj_logo.jpeg" width="480">
 
   <h1>🎉 College Fest Portal - Narula Institute of Technology</h1>
 
