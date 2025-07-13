@@ -56,9 +56,7 @@
     <li>Push notifications for new updates</li>
   </ul>
 
-  <h2>🧑‍💻 Developed By</h2>
-  <p><strong>Team Narula Web Ninjas</strong><br>
-  For inquiries, contact: <code>your.email@example.com</code></p>
+  
 
 </body>
 </html>
