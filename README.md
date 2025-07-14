@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌟 Kritanj 2025 – College Fest Website
 
-## Getting Started
+Welcome to the official **Kritanj 2025** website!  
+This project was built for our college's annual fest to showcase events, manage registrations, and provide real-time updates — all in a modern and responsive design.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Hosting:** Vercel / Netlify (customizable)
+- **Deployment:** CI/CD ready
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🎯 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🎨 Fully responsive UI for desktop and mobile
+- 📅 Event listings with details and schedule
+- 📝 Easy event registration system
+- 🔍 Smooth navigation with modern animations
+- 🌙 Dark mode ready (optional if implemented)
+- ⚡ Optimized performance with Next.js
 
-## Learn More
+## 📸 Preview
 
-To learn more about Next.js, take a look at the following resources:
+![Website Preview](./screenshot1.png)
+              (./screenshot2.png)
+              (./screenshot3.png)
+## 📍 Live Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> 🔗 [Live Site](https://kritanj2025.vercel.app/)  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Installation & Setup
 
-## Deploy on Vercel
+# Clone the repository
+    git clone https://github.com/yourusername/kritanj2025.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Move into the project directory
+    cd kritanj2025
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Install dependencies
+    npm install
+
+# Run the development server
+    npm run dev
+    
+    The app will be running at http://localhost:3000
+
+📁 Project Structure (Basic)
+
+          kritanj2025/
+          ├── components/
+          ├── pages/
+          ├── public/
+          │   └── banner.png
+          ├── styles/
+          ├── tailwind.config.js
+          └── README.md
