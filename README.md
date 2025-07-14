@@ -22,9 +22,9 @@ This project was built for our college's annual fest to showcase events, manage 
 
 ## 📸 Preview
 
-![Website Preview](./screenshot1.png)
-              (./screenshot2.png)
-              (./screenshot3.png)
+![Website Preview](./Screenshot1.png)
+![Website Preview](./Screenshot2.png)
+![Website Preview](./Screenshot3.png)
 ## 📍 Live Demo
 
 > 🔗 [Live Site](https://kritanj2025.vercel.app/)  
